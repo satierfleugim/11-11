@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfólio Elegante</title>
 
-  <!-- Fonte elegante do Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -93,6 +92,10 @@
       z-index: 1;
       padding: 12px 16px;
       font-family: 'Playfair Display', serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
     }
 
     .card-content a {
@@ -100,19 +103,16 @@
       color: #a3a1b0;
       text-decoration: none;
       text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      transition: color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      background-color: #000;
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: inline-block;
     }
 
     .card-content a:hover {
+      background-color: #222;
       color: #8e8ba3;
-    }
-
-    .card {
-      --img: url('img1.jpg');
-    }
-
-    .card::before {
-      background-image: var(--img);
     }
   </style>
 </head>
@@ -128,7 +128,6 @@
   </div>
 
   <script>
-    // Carregar o conteúdo de cartas.html dinamicamente
     fetch('cartas.html')
       .then(response => response.text())
       .then(html => {
