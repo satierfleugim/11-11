@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfólio Elegante</title>
+  <title>Portfólio Cartas Clicáveis</title>
 
-  <!-- Fonte elegante do Google Fonts -->
+  <!-- Fonte elegante e sofisticada do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
@@ -24,13 +25,19 @@
     .intro {
       text-align: center;
       padding: 3rem 2rem 2rem;
-      font-size: 2.4rem;
-      color: #a3a1b0;
       max-width: 900px;
       margin: auto;
       line-height: 1.5;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
-      font-family: 'Playfair Display', serif;
+    }
+
+    .intro-text {
+      font-family: 'Cinzel', serif;
+      font-size: 2.4rem;
+      color: #a3a1b0;
+      font-weight: 700;
+      margin-top: 1rem;
+      line-height: 1.4;
     }
 
     .profile-img {
@@ -53,77 +60,31 @@
       margin: auto;
     }
 
-    .card {
+    .card-link {
+      display: block;
       position: relative;
       height: 200px;
       border-radius: 14px;
       overflow: hidden;
-      border: 3px solid transparent;
+      border: 3px solid #d5d2e0;
       background-origin: border-box;
       background-clip: content-box, border-box;
       background-image:
         linear-gradient(#ffffff, #ffffff),
         linear-gradient(135deg, #d5d2e0, #c2d3df);
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-    }
-
-    .card::before {
+    .card-link::before {
       content: "";
       position: absolute;
       inset: 0;
+      background-image: var(--img);
       background-size: cover;
       background-position: center;
       filter: brightness(0.7);
-      transition: filter 0.3s ease;
       z-index: 0;
-    }
-
-    .card:hover::before {
-      filter: brightness(0.85);
-    }
-
-    .card-content {
-      position: relative;
-      z-index: 1;
-      padding: 12px 16px;
-      font-family: 'Playfair Display', serif;
-    }
-
-    .card-content a {
-      font-size: 1.4rem;
-      color: #a3a1b0;
-      text-decoration: none;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      transition: color 0.3s ease;
-    }
-
-    .card-content a:hover {
-      color: #8e8ba3;
-    }
-
-    /* Estilo do botão preto */
-    .botao-download {
-      background-color: #000;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      font-family: 'Playfair Display', serif;
-      color: #a3a1b0;
-      font-size: 1.4rem;
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .botao-download:hover {
-      background-color: #222;
     }
   </style>
 </head>
@@ -131,11 +92,14 @@
 
   <div class="intro">
     <img src="fotodeperfil.jpg" alt="" class="profile-img">
-    Site totalmente <br>seguro</br>
+    <div class="intro-text">
+      Sejam bem-vindo<br>
+      Segue para ajudar
+    </div>
   </div>
 
   <div class="portfolio" id="portfolio">
-    <!-- Conteúdo das cartas será carregado aqui -->
+    <!-- As cartas serão carregadas aqui -->
   </div>
 
   <script>
