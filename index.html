@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio Elegante</title>
+
+  <!-- Fonte elegante do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9fafc;
+      color: #333;
+    }
+
+    .intro {
+      text-align: center;
+      padding: 3rem 2rem 2rem;
+      font-size: 2.4rem;
+      color: #a3a1b0;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.5;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+      font-family: 'Playfair Display', serif;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #d6d4e4;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin: 0 auto 1.5rem;
+      display: block;
+    }
+
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 2rem 4rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .card {
+      position: relative;
+      height: 200px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 3px solid transparent;
+      background-origin: border-box;
+      background-clip: content-box, border-box;
+      background-image:
+        linear-gradient(#ffffff, #ffffff),
+        linear-gradient(135deg, #d5d2e0, #c2d3df);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+      transition: filter 0.3s ease;
+      z-index: 0;
+    }
+
+    .card:hover::before {
+      filter: brightness(0.85);
+    }
+
+    .card-content {
+      position: relative;
+      z-index: 1;
+      padding: 12px 16px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .card-content a {
+      font-size: 1.4rem;
+      color: #a3a1b0;
+      text-decoration: none;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      transition: color 0.3s ease;
+    }
+
+    .card-content a:hover {
+      color: #8e8ba3;
+    }
+
+    .card {
+      --img: url('img1.jpg');
+    }
+
+    .card::before {
+      background-image: var(--img);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="intro">
+    <img src="fotodeperfil.jpg" alt="" class="profile-img">
+    Site totalmente seguro
+  </div>
+
+  <div class="portfolio" id="portfolio">
+    <!-- Conteúdo das cartas será carregado aqui -->
+  </div>
+
+  <script>
+    // Carregar o conteúdo de cartas.html dinamicamente
+    fetch('cartas.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('portfolio').innerHTML = html;
+      })
+      .catch(err => console.error('Erro ao carregar cartas:', err));
+  </script>
+
+</body>
+</html>
